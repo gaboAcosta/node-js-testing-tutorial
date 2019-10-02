@@ -1,0 +1,26 @@
+version: '2'
+services:
+  app:
+    build: .
+    working_dir: /app_dev
+    entrypoint:
+      - npm
+      - run
+    command: dev
+    environment:
+      NODE_ENV: "development"
+    depends_on:
+      - mongodb
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app_dev
+  mongodb:
+    image: mongo:3.6
+    volumes:
+      - mongoDevelopment:/data/db
+    ports:
+      - '27017:27017'
+volumes:
+  mongoDevelopment:
+    external: true

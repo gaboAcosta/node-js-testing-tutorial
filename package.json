@@ -4,8 +4,13 @@
   "description": "This will be a NodeJS testing tutorial",
   "main": "index.js",
   "scripts": {
-    "test:functional": "mocha  --recursive \"./test/functional/*/*.spec.js\"",
-    "test:unit": "mocha  --recursive \"./src/*/*.spec.js\""
+    "start": "node index",
+    "predev": "npm install",
+    "dev": "nodemon index.js",
+    "test:functional": "NODE_ENV=test mocha --recursive \"./test/functional/**/*.spec.js\" --exit",
+    "test:unit": "NODE_ENV=test mocha --recursive \"./src/*/*.spec.js\"",
+    "docker:volumes": "docker volume create --name=mongoDevelopment",
+    "docker:up": "docker-compose up"
   },
   "repository": {
     "type": "git",
@@ -26,6 +31,9 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.7.3"
   }
 }

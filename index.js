@@ -1,5 +1,5 @@
 
-const app = require('./src/app')
+const app = require('./src/setup/app')
 const port = 3000
 
 app.listen(port, () => {
